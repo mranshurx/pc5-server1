@@ -2,8 +2,8 @@ import { connect } from 'cloudflare:sockets';
 
 const USER_ID = '11111111-2222-3333-4444-555555555555';
 const SOCKS5_CONFIG = {
-  user: '517b21b98a0056f32875b89b6340c180',
-  pass: 'v1.498688.767728e5.29ef9164954e03dccb3cf3fc',
+  user: '21398f2b830c7f666807745abedf8598',
+  pass: 'v1.498700.58db82a3.bd65ba72e1fe74e7fab97e23',
   host: '135.125.189.205',
   port: 8443,
 };
