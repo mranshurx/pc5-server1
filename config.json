@@ -1,0 +1,67 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "tag": "vless-ws-in",
+      "protocol": "vless",
+      "listen": "0.0.0.0",
+      "port": 8080,
+      "settings": {
+        "clients": [
+          {
+            "id": "11111111-2222-3333-4444-555555555555"
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "path": "/ws"
+        },
+        "sockopt": {
+          "tcpNoDelay": true,
+          "tcpFastOpen": true
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "proxy",
+      "protocol": "socks",
+      "settings": {
+        "servers": [
+          {
+            "address": "135.125.189.205",
+            "port": 8443,
+            "users": [
+              {
+                "user": "517b21b98a0056f32875b89b6340c180",
+                "pass": "v1.498688.767728e5.29ef9164954e03dccb3cf3fc"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "sockopt": {
+          "tcpNoDelay": true,
+          "tcpFastOpen": true
+        }
+      }
+    }
+  ],
+  "routing": {
+    "domainStrategy": "AsIs",
+    "rules": [
+      {
+        "type": "field",
+        "network": "tcp,udp",
+        "outboundTag": "proxy"
+      }
+    ]
+  }
+}
